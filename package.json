@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JDLT-Ltd/dev-challenge#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^3.3.7",
@@ -29,8 +30,6 @@
     "react-dom": "^16.4.2"
   },
   "devDependencies": {
-    "webpack": "^4.17.1",
-    "webpack-dev-server": "^3.1.7",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -39,14 +38,14 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.4.1",
+    "css-loader": "^0.28.9",
     "file-loader": "^1.1.8",
     "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1",
-    "css-loader": "^0.28.9",
-    "style-loader": "^0.20.2",
-    "sass-loader": "^6.0.6",
-    "node-sass": "^4.7.2"
+    "webpack-dev-server": "^2.11.1"
   }
 }
