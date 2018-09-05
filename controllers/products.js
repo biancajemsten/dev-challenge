@@ -6,6 +6,14 @@ function indexRoute(req, res, next){
     .catch(next);
 }
 
+function createRoute(req, res, next){
+  Product
+    .create(req.body)
+    .then(product => res.status(201).json(product))
+    .catch(next);
+}
+
 module.exports = {
-  index: indexRoute
+  index: indexRoute,
+  create: createRoute
 };
