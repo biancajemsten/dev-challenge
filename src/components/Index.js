@@ -5,7 +5,6 @@ class ProductIndex extends React.Component{
 
   constructor(props){
     super(props);
-    this.unique = this.unique.bind(this);
     this.state = {
       products: []
     };
@@ -13,7 +12,7 @@ class ProductIndex extends React.Component{
 
   //function that creates a list of unique suppliers or products depending on input
   unique = (type) => {
-    return type === 'supplier' ? this.state.products.map(product => product.supplier) : this.state.products.map(product => product.name);
+    return type === 'supplier' ? Array.from( new Set(this.state.products.map(product => product.supplier))) : Array.from( new Set(this.state.products.map(product => product.name)));
   }
 
   componentDidMount() {
@@ -21,8 +20,7 @@ class ProductIndex extends React.Component{
       url: '/api/products',
       method: 'GET'
     })
-      .then(res => this.setState({products: res.data}))
-      .then(res => console.log(res));
+      .then(res => this.setState({products: res.data}));
   }
 
 
