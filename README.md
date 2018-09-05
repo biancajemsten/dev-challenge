@@ -2,7 +2,7 @@
 
 ## Overview
 
-Since technologies were left up to the developer I chose to build the challenge using a Node.js, MongoDB, Express backend with a React and Bootstrap frontend.
+Since technologies were left up to the developer I chose to build the challenge using a Node.js, MongoDB, Express backend with a React and Bootstrap frontend. Lastly I added some backend tests using mocha, chai, and supertest.
 
 **Requirements:**
 * Selecting suppliers and products in the drop-downs
@@ -45,6 +45,8 @@ The fact that state gets set on change makes it easy to just take state and subm
 I started out with setting up a basic backend with only the index route as I wanted to make sure I got the bare minimum working first. I set up a small seeds file to make the process of building the frontend later easier. Thereafter I went on to set up a React frontend environment. In the index component I first focused on getting the list of all products in the database display in the grid. Once that worked, I added one feature at the time. Starting with creating the unique lists for the drop downs and then moving on the to generating a filtered list of products which i then displayed in the grid.
 
 Feeling satisfied with setting up the index page, I went on to create a backend create route. Since the files were already set up this was rather quick. The `New` component only took a little bit of Bootstrap research to figure out the correct classes for the form.
+
+Lastly, I decided to add a couple of backend tests in the end. Looking back at it, these should have been added in the beginning. However, when I started the challenge I wasn't sure how far I would get so I wanted to focus on the important parts first. 
 
 ### Blockers
 
