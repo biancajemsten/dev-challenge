@@ -50,15 +50,7 @@ class ProductIndex extends React.Component{
     });
   }
 
-
-  //PSEUDO FOR SORT
-  //need a function to monitor change on supplier options
-  // need a function to monitor change on product options
-  // need a function to create list of matched products depending on selected options
-
-
   render(){
-    console.log(this.state);
     if(!this.state.products) return <h2 className="title">Loading...</h2>;
     return(
       <div className="container-fluid">
