@@ -2,11 +2,11 @@
   "name": "dev-challenge",
   "version": "1.0.0",
   "description": "JDLT developer technical challenge",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "node db/seeds",
-    "start": "webpack-dev-server index.js"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -18,17 +18,6 @@
     "url": "https://github.com/JDLT-Ltd/dev-challenge/issues"
   },
   "homepage": "https://github.com/JDLT-Ltd/dev-challenge#readme",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "bluebird": "^3.5.1",
-    "body-parser": "^1.18.3",
-    "bootstrap": "^3.3.7",
-    "express": "^4.16.3",
-    "jquery": "^3.2.1",
-    "mongoose": "^5.2.12",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.26.0",
@@ -46,6 +35,19 @@
     "style-loader": "^0.20.2",
     "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
+    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.3",
+    "jquery": "^3.2.1",
+    "mongoose": "^5.2.12",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^4.3.1"
   }
 }

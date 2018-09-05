@@ -3,16 +3,26 @@ import axios from 'axios';
 
 class ProductIndex extends React.Component{
 
-  state = {
-    products: []
-  };
+  constructor(props){
+    super(props);
+    this.unique = this.unique.bind(this);
+    this.state = {
+      products: []
+    };
+  }
+
+  //function that creates a list of unique suppliers or products depending on input
+  unique = (type) => {
+    return type === 'supplier' ? this.state.products.map(product => product.supplier) : this.state.products.map(product => product.name);
+  }
 
   componentDidMount() {
     axios({
       url: '/api/products',
       method: 'GET'
     })
-      .then(res => this.setState({products: res.data}));
+      .then(res => this.setState({products: res.data}))
+      .then(res => console.log(res));
   }
 
 
@@ -29,13 +39,17 @@ class ProductIndex extends React.Component{
                 <div className="form-group col-md-6">
                   <label htmlFor="selSupplier">Supplier</label>
                   <select className="form-control" id="selSupplier">
-                    <option>xxxx</option>
+                    {this.unique('supplier').map((supplier, i) =>
+                      <option key={i}>{supplier}</option>
+                    )}
                   </select>
                 </div>
                 <div className="form-group col-md-6">
                   <label htmlFor="selProduct">Product</label>
                   <select className="form-control" id="selProduct">
-                    <option>xxxx</option>
+                    {this.unique('product').map((product, i) =>
+                      <option key={i}>{product}</option>
+                    )}
                   </select>
                 </div>
               </div>

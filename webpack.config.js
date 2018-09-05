@@ -5,10 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpack = new HtmlWebpackPlugin({
   template: 'src/index.html',
   filename: 'index.html',
-  inject: 'body',
-  node: {
-    fs: 'empty'
-  }
+  inject: 'body'
 });
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -19,12 +16,15 @@ const CopyWebpack = new CopyWebpackPlugin([
 const HotModuleReplcement = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
-  target: 'node',
   entry: './src/app.js',
   output: {
     path: path.resolve('public'),
     filename: 'app.js',
     publicPath: '/'
+  },
+  node: {
+    fs: 'empty',
+    net: 'empty'
   },
   module: {
     loaders: [
@@ -55,11 +55,5 @@ module.exports = {
       }
     }
   },
-  plugins: [
-    HotModuleReplcement,
-    HtmlWebpack,
-    CopyWebpack,
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    })]
+  plugins: [HotModuleReplcement, HtmlWebpack, CopyWebpack]
 };
