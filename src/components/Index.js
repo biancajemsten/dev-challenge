@@ -6,13 +6,10 @@ class ProductIndex extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      products: []
+      products: [],
+      supplier: '',
+      product: ''
     };
-  }
-
-  //function that creates a list of unique suppliers or products depending on input
-  unique = (type) => {
-    return type === 'supplier' ? Array.from( new Set(this.state.products.map(product => product.supplier))) : Array.from( new Set(this.state.products.map(product => product.name)));
   }
 
   componentDidMount() {
@@ -23,8 +20,45 @@ class ProductIndex extends React.Component{
       .then(res => this.setState({products: res.data}));
   }
 
+  //function that creates a list of unique suppliers or products depending on input
+  uniqueList = (type) => {
+    return type === 'supplier' ? Array.from( new Set(this.state.products.map(product => product.supplier))) : Array.from( new Set(this.state.products.map(product => product.name)));
+  }
+
+  // sets supplier or product on state to the value of the drop down depending on which one changed
+  handleChange = (e) => {
+    e.target.id === 'selSupplier' ? this.setState({supplier: e.target.value}) : this.setState({product: e.target.value});
+  }
+
+  //returns a list of products filtered by the inputs of the supplier AND product drop downs
+  sortedProducts = () => {
+    return this.filterByProducts(this.filterBySuppliers(this.state.products));
+  }
+
+  //returns a list of products filtered by the selection in the drop down
+  filterBySuppliers = (products) => {
+    const filtered =  products.filter(product => {
+      if (product.supplier === this.state.supplier) return product;
+    });
+    return filtered;
+  }
+
+  //returns a list of products filtered by the selection in the drop down and takes the return of filteredBySuppliers as an input
+  filterByProducts = (products) => {
+    return products.filter(product => {
+      if (product.name === this.state.product) return product;
+    });
+  }
+
+
+  //PSEUDO FOR SORT
+  //need a function to monitor change on supplier options
+  // need a function to monitor change on product options
+  // need a function to create list of matched products depending on selected options
+
 
   render(){
+    console.log(this.state);
     if(!this.state.products) return <h2 className="title">Loading...</h2>;
     return(
       <div className="container-fluid">
@@ -36,16 +70,18 @@ class ProductIndex extends React.Component{
               <div className="row">
                 <div className="form-group col-md-6">
                   <label htmlFor="selSupplier">Supplier</label>
-                  <select className="form-control" id="selSupplier">
-                    {this.unique('supplier').map((supplier, i) =>
+                  <select defaultValue ='Please Select One' onChange={this.handleChange} className="form-control" id="selSupplier">
+                    <option disabled>Please Select One</option>
+                    {this.uniqueList('supplier').map((supplier, i) =>
                       <option key={i}>{supplier}</option>
                     )}
                   </select>
                 </div>
                 <div className="form-group col-md-6">
                   <label htmlFor="selProduct">Product</label>
-                  <select className="form-control" id="selProduct">
-                    {this.unique('product').map((product, i) =>
+                  <select defaultValue ='Please Select One'onChange={this.handleChange} className="form-control" id="selProduct">
+                    <option disabled>Please Select One</option>
+                    {this.uniqueList('product').map((product, i) =>
                       <option key={i}>{product}</option>
                     )}
                   </select>
@@ -65,7 +101,7 @@ class ProductIndex extends React.Component{
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.products.map(product =>
+                  {this.sortedProducts().map(product =>
                     <tr key={product._id}>
                       <td>{product._id}</td>
                       <td>{product.supplier}</td>
