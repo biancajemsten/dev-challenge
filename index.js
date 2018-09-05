@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const { dbURI, port } = require('./config/environment');
 
 
+
 const router = require('./config/routes');
 
 const mongoose = require('mongoose');
@@ -15,10 +16,6 @@ mongoose.connect(dbURI);
 app.use(bodyParser.json());
 app.use('/api', router);
 // app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
-
-// app.get('/api/hello', (req, res) => {
-//   res.send({ express: 'Hello from Express!'});
-// });
 
 
 

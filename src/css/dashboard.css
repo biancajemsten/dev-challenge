@@ -23,3 +23,26 @@
 .main .page-header {
   margin-top: 0;
 }
+
+/*
+ * Navbar
+ */
+
+
+.navbar-nav{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.nav-item{
+  margin-left: 10px;
+  height: 100%;
+  padding: 10px;
+}
+
+.nav-item:hover{
+  background-color: #337ab7;
+  color: #FFF;
+  text-decoration: none;
+}
