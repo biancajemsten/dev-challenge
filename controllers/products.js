@@ -7,8 +7,7 @@ function indexRoute(req, res, next){
 }
 
 function createRoute(req, res, next){
-  Product
-    .create(req.body)
+  Product.create(req.body)
     .then(product => res.status(201).json(product))
     .catch(next);
 }
