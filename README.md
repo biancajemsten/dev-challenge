@@ -10,6 +10,8 @@ Since technologies were left up to the developer I chose to build the challenge 
 * Displaying the returned data in the grid
 * Anything else you'd like to show us
 
+**Before using the app.** Please run yarn seed before using the app in order to get the best experience. 
+
 ### What the app can do
 
 #### Home page
@@ -46,7 +48,7 @@ I started out with setting up a basic backend with only the index route as I wan
 
 Feeling satisfied with setting up the index page, I went on to create a backend create route. Since the files were already set up this was rather quick. The `New` component only took a little bit of Bootstrap research to figure out the correct classes for the form.
 
-Lastly, I decided to add a couple of backend tests in the end. Looking back at it, these should have been added in the beginning. However, when I started the challenge I wasn't sure how far I would get so I wanted to focus on the important parts first. 
+Lastly, I decided to add a couple of backend tests in the end. Looking back at it, these should have been added in the beginning. However, when I started the challenge I wasn't sure how far I would get so I wanted to focus on the important parts first.
 
 ### Blockers
 
